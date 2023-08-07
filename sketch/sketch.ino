@@ -25,6 +25,7 @@ void loop() {
   Serial.print(t);
   Serial.println(" *C "); //Вывод показателей на экран
   servo.write(360); // Поворачиваем серво на 90 градусов
+  Serial.print(servo.write())
   if (h > 70.0){
       delay(1000);
       servo.write(1800);
