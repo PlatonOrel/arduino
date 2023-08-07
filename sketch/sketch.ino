@@ -25,15 +25,16 @@ void loop() {
   Serial.print(t);
   Serial.println(" *C "); //Вывод показателей на экран
   servo.write(360); // Поворачиваем серво на 90 градусов
-  delay(1000);        
-  servo.write(1800);
-  delay(100);        
-  servo.write(90);
-  delay(1000);
-  servo.write(0);
-  delay(1000);     
+  if (h > 70.0){
+      delay(1000);
+      servo.write(1800);
+      delay(100);
+      servo.write(90);
+      delay(1000);
+      servo.write(0);
+      delay(1000);
+  }
 }
-
 
 
 
