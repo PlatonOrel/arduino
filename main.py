@@ -1,5 +1,5 @@
 import serial.tools.list_ports
-
+import csv
 ports = serial.tools.list_ports.comports()
 for port in ports:
     print('Доступные com порты: ', port.device)
@@ -11,9 +11,16 @@ try:
     ser = serial.Serial(port, baudrate=baudrate)
     print('Serial connection')
     while True:
-        line = ser.readline().decode().strip()
+        line = ser.readline().decode()
         if line:
-            print('Arduino:', line)
+            print(line)
+            print(type(line))
+        with open('test.csv', 'a') as file:
+
+            file.write(line)
+
+
 
 except serial.SerialException as se:
     print("Serial port error:", str(se))
+
